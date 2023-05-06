@@ -17,3 +17,12 @@ export async function axiosGet () {
         console.log(error);
     }
 }
+
+export async function getPokemon(url: string) {
+    try {
+        const resp = await axios.get(url)
+        return resp;
+    } catch (error) {
+        console.log(error);
+    }
+}
