@@ -1,5 +1,10 @@
+import { ReactNode } from "react";
 
-function Navbar() {
+interface NavPros {
+  title: string,
+  children: ReactNode,
+}
+function Navbar( { title, children }: NavPros ) {
 
   return (
     <div className="drawer">
@@ -23,7 +28,7 @@ function Navbar() {
               </svg>
             </label>
           </div>
-          <div className="flex-1 px-2 mx-2">Navbar Title</div>
+          <div className="flex-1 px-2 mx-2">{ title }</div>
           <div className="flex-none hidden lg:block">
             <ul className="menu menu-horizontal">
               <li>
@@ -35,7 +40,7 @@ function Navbar() {
             </ul>
           </div>
         </div>
-        Content
+        { children }
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
