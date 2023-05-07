@@ -11,7 +11,7 @@ import axios from "axios";
 
 export async function axiosGet () {
     try {
-        const resp = await axios.get('https://pokeapi.co/api/v2/pokemon')
+        const resp = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=151')
         return resp;
     } catch (error) {
         console.log(error);
