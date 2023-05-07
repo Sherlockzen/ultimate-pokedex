@@ -6,33 +6,50 @@ interface PropsCard {
     url: string,
 }
 
+// interface dataPoke {
+//   sprites: {other: {dream_world: {front_default: string}}}
+// }
+
+export interface PokeType {
+  type: Type
+}
+
+export interface Type {
+  name: string
+  url: string
+}
+
 function Card({ name, url }: PropsCard) {
     const { data } = useQuery({
       queryKey: ['pokemon', name],
-      queryFn: () => getPokemon(url).then((e) => e?.data)
-    })  
+      queryFn: () => getPokemon(url)
+    }) 
 
-
-//   console.log(data.sprites.other.dream_world.front_default);
+  // console.log(types)
   
 
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="card w-96 shadow-xl">
       <figure className=" w-32 h-32 m-auto">
         <img
           className=" w-full h-full"  
-          src={data.sprites.other.dream_world.front_default}
+          src={data?.data.sprites.other.dream_world.front_default}
           alt={name + " sprite"}
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">
+        <h2 className="card-title capitalize">
           {name}
         </h2>
         <p>If a dog chews shoes whose shoes does he choose?</p>
         <div className="card-actions justify-end">
-          <div className="badge badge-outline">Fashion</div>
-          <div className="badge badge-outline">Products</div>
+          {
+            data?.data.types?.map( (type: PokeType) => 
+              <div key={type.type.name} className={`badge badge-outline flex items-start uppercase drop-shadow ${type.type.name}-gradient`}>
+                <span>{type.type.name}</span>
+              </div>
+            )
+          }
         </div>
       </div>
     </div>
