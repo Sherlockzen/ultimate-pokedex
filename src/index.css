@@ -1,3 +1,71 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.normal-gradient {
+    background: linear-gradient(to right, #A8A878, #C6C6A7);
+}
+
+.fire-gradient {
+    background: linear-gradient(to right, #F08030, #F5AC78);
+}
+
+.water-gradient {
+    background: linear-gradient(to right, #6890F0, #9DB7F5);
+  }
+  
+.grass-gradient {
+    background: linear-gradient(to right, #78C850, #8BBE8A);
+}  
+
+.electric-gradient {
+    background: linear-gradient(to right, #F8D030, #FAE078);
+}
+
+.ice-gradient {
+    background: linear-gradient(to right, #98D8D8, #B4E6E6);
+}
+
+.fighting-gradient {
+    background: linear-gradient(to right, #C03028, #D67873);
+}
+
+.poison-gradient {
+    background: linear-gradient(to right, #A040A0, #C183C1);
+}
+
+.ground-gradient {
+    background: linear-gradient(to right, #E0C068, #EBD69D);
+}
+
+.flying-gradient {
+    background: linear-gradient(to right, #A890F0, #C6D2F5);
+}
+
+.psychic-gradient {
+    background: linear-gradient(to right, #F85888, #FFA5D5);
+}
+
+.bug-gradient {
+    background: linear-gradient(to right, #A8B820, #C6D16E);
+}
+
+.rock-gradient {
+    background: linear-gradient(to right, #B8A038, #D1C17D);
+}
+
+.ghost-gradient {
+    background: linear-gradient(to right, #705898, #A292BC);
+}
+
+.dragon-gradient {
+    background: linear-gradient(to bottom, #7038F8, #C6B7F5);
+}
+
+.steel-gradient {
+    background: linear-gradient(to bottom, #B8B8D0, #D1D1E0);
+}
+
+.fairy-gradient {
+    background: linear-gradient(to bottom, #EE99AC, #F5B5E5);
+}
