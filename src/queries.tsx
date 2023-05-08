@@ -26,3 +26,12 @@ export async function getPokemon(url: string) {
         console.log(error);
     }
 }
+
+export async function getGenerations() {
+    try {
+        return await axios.get('https://pokeapi.co/api/v2/generation')
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
