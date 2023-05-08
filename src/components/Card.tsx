@@ -29,7 +29,7 @@ function Card({ name, url }: PropsCard) {
   
 
   return (
-    <div className="card w-96 shadow-xl">
+    <div className="card w-96 bg-accent shadow-xl p-4">
       <figure className=" w-32 h-32 m-auto">
         <img
           className=" w-full h-full"  

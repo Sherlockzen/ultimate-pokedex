@@ -5,17 +5,6 @@ import Card from "./components/Card"
 import ListPokemons from "./components/ListPokemons"
 
 function App() {
-const [pokeList, setPokeList] = useState<pokeList>({
-  count: 0,
-  next: '',
-  previous: '',
-  results: [],
-})
-  // useEffect(() => {
-  //   const pokemons: pokeList = GetPokemons().data;
-
-  //   setPokeList(pokemons);
-  // },[])
 
   return (
     <main>
