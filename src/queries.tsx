@@ -11,10 +11,20 @@ import axios from "axios";
 
 export async function axiosGet () {
     try {
-        const resp = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=151')
+        const resp = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=20')
         return resp;
     } catch (error) {
         console.log(error);
+    }
+}
+
+export async function pokemonsPaginated (urlNext = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20") {
+    try {
+        const resul = (await axios.get(urlNext)).data;
+        console.log(resul);
+        return resul;
+    } catch (error) {
+        console.log(error);   
     }
 }
 
