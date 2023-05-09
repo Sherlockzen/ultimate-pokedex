@@ -21,7 +21,7 @@ export async function axiosGet () {
 export async function pokemonsPaginated (urlNext = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20") {
     try {
         const resul = (await axios.get(urlNext)).data;
-        console.log(resul);
+        // console.log(resul);
         return resul;
     } catch (error) {
         console.log(error);   
