@@ -12,9 +12,6 @@ function Navbar( { title, children }: NavPros ) {
     queryFn: () => getGenerations()
   })
 
-  console.log(generations?.data.results);
-  
-
   return (
     <div className="drawer">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
