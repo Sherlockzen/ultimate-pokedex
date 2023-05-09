@@ -2,6 +2,7 @@ import { axiosGet } from "../queries";
 import Card from "./Card";
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { pokemonsPaginated } from "../queries";
+import { useEffect, useRef, useState } from "react";
 // import { useEffect } from "react";
 
 interface Iprev {
@@ -12,10 +13,8 @@ interface Iprev {
   }
 
 const ListPokemons = () => {
-    // const { status, error, data: pokemons} = useQuery({
-    //     queryKey: ['pokemons'],
-    //     queryFn: () => axiosGet().then((e) => e?.data)
-    // })
+    const componentRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
 
     const {
         data: pokemons,
@@ -28,7 +27,35 @@ const ListPokemons = () => {
         queryFn: ({ pageParam }) => pokemonsPaginated(pageParam) 
     })
 
-    console.log(pokemons?.pages);
+
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          setIsVisible(entry.isIntersecting);
+        }
+        // {
+        //   rootMargin: '0px',
+        //   threshold: 0.1,
+        // },
+      );
+      if (componentRef.current) {
+        observer.observe(componentRef.current);
+      }
+      return () => {
+        if (componentRef.current) {
+          observer.unobserve(componentRef.current);
+        }
+      };
+    }, [componentRef]);
+  
+
+    useEffect(() => {
+      if (isVisible) {
+        console.log('fetch');
+        
+        fetchNextPage();
+      }
+    }, [isVisible])
     
 
     if (status === 'loading') return <progress className="progress w-56"></progress>
@@ -51,12 +78,13 @@ const ListPokemons = () => {
             ))}
         </div>
         {hasNextPage && (
-          <button
+          <div
+            ref={componentRef}
             className=" border border-black"
             onClick={() => fetchNextPage()}
           >
             Load more
-          </button>
+          </div>
         )}
       </>
     );
