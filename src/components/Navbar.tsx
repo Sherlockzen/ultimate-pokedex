@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getGenerations } from "../queries";
 
@@ -7,7 +7,7 @@ interface NavPros {
   children: ReactNode,
 }
 function Navbar( { title, children }: NavPros ) {
-  const { status, error, data: generations } = useQuery({
+  const { data: generations } = useQuery({
     queryKey: ['generations'],
     queryFn: () => getGenerations()
   })

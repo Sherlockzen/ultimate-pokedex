@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react"
 import Navbar from "./components/Navbar"
-import { pokeList } from "./types/pokemonList"
-import Card from "./components/Card"
 import ListPokemons from "./components/ListPokemons"
 
 function App() {

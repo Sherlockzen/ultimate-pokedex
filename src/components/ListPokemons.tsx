@@ -1,6 +1,5 @@
-import { axiosGet } from "../queries";
 import Card from "./Card";
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { pokemonsPaginated } from "../queries";
 import { useEffect, useRef, useState } from "react";
 // import { useEffect } from "react";
@@ -32,7 +31,7 @@ const ListPokemons = () => {
       const observer = new IntersectionObserver(
         ([entry]) => {
           setIsVisible(entry.isIntersecting);
-        }
+        },
         // {
         //   rootMargin: '0px',
         //   threshold: 0.1,
@@ -43,13 +42,13 @@ const ListPokemons = () => {
       }
       return () => {
         if (componentRef.current) {
-          observer.unobserve(componentRef.current);
+          observer.unobserve;
         }
       };
     }, [componentRef]);
-  
-
+    
     useEffect(() => {
+      console.log(isVisible);
       if (isVisible) {
         console.log('fetch');
         
